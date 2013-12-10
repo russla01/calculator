@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
   //added button
 
-
+  cout << "hello" << endl;
   window->end();
   window->show(argc,argv);
   return Fl::run();

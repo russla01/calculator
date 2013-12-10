@@ -7,7 +7,10 @@
 #include <FL/fl_ask.H>
 #include <vector>
 #include "numButton.h"
-vector elements;
+
+using namespace std;
+
+vector <int> elements;
 
 void push(int value){
   elements.push_back(value);
@@ -16,7 +19,7 @@ int pop(){
   elements.pop_back();
 }
 int top(){
-  if (elements.size >= 1){
+  if (elements.size() >= 1){
     return elements[elements.size()-1];
   }else
     return 0;
@@ -26,19 +29,19 @@ int first(){
   return top();
 }
 int second(){
-  if (elements.size >= 2){
+  if (elements.size() >= 2){
     return elements[elements.size()-2];
   }else
     return 0;
 }
 int third(){
-  if (elements.size >= 3){
+  if (elements.size() >= 3){
     return elements[elements.size()-3];
   }else
     return 0;
 }
 int fourth(){
-  if (elements.size >= 4){
+  if (elements.size() >= 4){
     return elements[elements.size()-4];
   }else
     return 0;
@@ -51,7 +54,37 @@ void numButton(Fl_Widget *w, void *) {
   myButton->copy_label(std::to_string(num).c_str());
 }
 
+void opAddition(Fl_Widget *w,void *){
+  Fl_Button *myButton = (Fl_Button *)w;
+}
 
+void opSubtraction(Fl_Widget *w,void *){
+  Fl_Button *myButton = (Fl_Button *)w;
+}
+
+void opMultiplication(Fl_Widget *w,void *){
+  Fl_Button *myButton = (Fl_Button *)w;
+}
+
+void opDivision(Fl_Widget *w,void *){
+  Fl_Button *myButton = (Fl_Button *)w;
+}
+void opExpo(Fl_Widget *w,void *){
+  Fl_Button *myButton = (Fl_Button *)w;
+}
+
+void opSqrt(Fl_Widget *w,void *){
+  Fl_Button *myButton = (Fl_Button *)w;
+}
+void opSign(Fl_Widget *w,void *){
+  Fl_Button *myButton = (Fl_Button *)w;
+}
+void opEnter(Fl_Widget *w,void *){
+  Fl_Button *myButton = (Fl_Button *)w;
+}
+void opDrop(Fl_Widget *w,void *){
+  Fl_Button *myButton = (Fl_Button *)w;
+}
 
 int main(int argc, char *argv[])
 {
@@ -88,6 +121,36 @@ int main(int argc, char *argv[])
     
  NumberButton *b0 = new NumberButton(105, 470, 80,80,"&Beep",0);
  b0->callback(numButton,0);
+
+ Fl_Button *addition = new Fl_Button(300,200, 50, 50,"+");
+ addition->callback (opAddition,0);
+
+ Fl_Button *subtraction = new Fl_Button(300,255, 50, 50,"-");
+ subtraction->callback (opSubtraction,0);
+
+ Fl_Button *multiplication = new Fl_Button(300,310, 50, 50,"*");
+ multiplication->callback (opMultiplication,0);
+
+ Fl_Button *division = new Fl_Button(300,365, 50, 50,"/");
+ division->callback (opDivision,0);
+
+ Fl_Button *expo = new Fl_Button(300,420, 50, 50,"^");
+ expo->callback (opExpo,0);
+
+ Fl_Button *sqrt = new Fl_Button(300,475, 50, 50,"sqrt");
+ sqrt->callback (opSqrt,0);
+
+ Fl_Button *sign = new Fl_Button(300,530, 50, 50,"+/-");
+ sign->callback (opSign,0);
+
+
+ Fl_Button *enter = new Fl_Button(200,485, 50, 50,"ENTER");
+ enter->callback (opEnter,0);
+ 
+ Fl_Button *drop = new Fl_Button(35,485, 50, 50,"DROP");
+ drop->callback (opDrop,0);
+ 
+
 //cout << "hello" << endl;
 // cout << "good bye" << endl;
   window->end();

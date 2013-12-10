@@ -7,10 +7,12 @@
 #include <FL/fl_ask.H>
 #include <vector>
 #include "numButton.h"
+#include <FL/Fl_Output.H>
 
 using namespace std;
 
 vector <int> elements;
+
 
 void push(int value){
   elements.push_back(value);
@@ -47,7 +49,9 @@ int fourth(){
     return 0;
 }
 //end display functions
-
+void updateDisplay(){
+  out4->value((to_string(fourth())).c_str());
+}
 void numButton(Fl_Widget *w, void *) {
   NumberButton *myButton = (NumberButton *)w;
   int num = myButton->getNum();
@@ -90,6 +94,20 @@ int main(int argc, char *argv[])
 {
   //create window
   Fl_Window *window = new Fl_Window(400,600);
+
+  //displays
+  Fl_Output *out4 = new Fl_Output(5,5,400,25,"0");
+  out4->box(FL_UP_BOX);
+  out4->textsize(12);
+  Fl_Output *out3 = new Fl_Output(5,35,400,25,"0");
+  out3->box(FL_UP_BOX);
+  out3->textsize(12);
+  Fl_Output *out2 = new Fl_Output(5,65,400,25,"0");
+  out2->box(FL_UP_BOX);
+  out2->textsize(12);
+  Fl_Output *out1 = new Fl_Output(5,95,400,25,"0");
+  out1->box(FL_UP_BOX);
+  out1->textsize(12);
 
   //added button
  NumberButton *b1 = new NumberButton(20, 200, 80,80,"&Beep",1);

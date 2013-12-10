@@ -11,8 +11,7 @@ int main(int argc, char *argv[])
   //create window
   Fl_Window *window = new Fl_Window(600,400);
 
-
-
+  //added button
 
 
   window->end();

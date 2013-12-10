@@ -5,13 +5,53 @@
 #include <FL/Fl_Box.H>
 #include <FL/Fl_Button.H>
 #include <FL/fl_ask.H>
+#include <vector>
 #include "numButton.h"
+vector elements;
+
+void push(int value){
+  elements.push_back(value);
+}
+int pop(){
+  elements.pop_back();
+}
+int top(){
+  if (elements.size >= 1){
+    return elements[elements.size()-1];
+  }else
+    return 0;
+}
+//for display. Returns the first, second, etc things on the stack
+int first(){ 
+  return top();
+}
+int second(){
+  if (elements.size >= 2){
+    return elements[elements.size()-2];
+  }else
+    return 0;
+}
+int third(){
+  if (elements.size >= 3){
+    return elements[elements.size()-3];
+  }else
+    return 0;
+}
+int fourth(){
+  if (elements.size >= 4){
+    return elements[elements.size()-4];
+  }else
+    return 0;
+}
+//end display functions
 
 void numButton(Fl_Widget *w, void *) {
   NumberButton *myButton = (NumberButton *)w;
   int num = myButton->getNum();
   myButton->copy_label(std::to_string(num).c_str());
 }
+
+
 
 int main(int argc, char *argv[])
 {

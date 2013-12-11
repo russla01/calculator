@@ -60,10 +60,8 @@ void updateDisplays(){
   out1->value( (to_string(first())).c_str() );
 }
 
-void numButton(Fl_Widget *w, void *) {
-  push(1);
-  updateDisplays();
-}
+
+
 
 void opAddition(Fl_Widget *w,void *){
   cout << "+" << endl;

@@ -11,6 +11,7 @@
 using namespace std;
 
 vector <int> elements;
+string number = "";
 
 Fl_Output *out4;
 Fl_Output *out3;
@@ -61,73 +62,75 @@ void updateDisplays(){
 }
 
 void button1(Fl_Widget *w, void *) {
-  push(1);
+  number = number + "1";
   updateDisplays();
 }
 void button2(Fl_Widget *w, void *) {
-  push(2);
+  number = number + "2";
   updateDisplays();
 }
 void button3(Fl_Widget *w, void *) {
-  push(3);
+  number = number + "3";
   updateDisplays();
 }
 void button4(Fl_Widget *w, void *) {
-  push(4);
+  number = number + "4";
   updateDisplays();
 }
 void button5(Fl_Widget *w, void *) {
-  push(5);
+  number = number + "5";
   updateDisplays();
 }
 void button6(Fl_Widget *w, void *) {
-  push(6);
+  number = number + "6";
   updateDisplays();
 }
 void button7(Fl_Widget *w, void *) {
-  push(7);
+  number = number + "7";
   updateDisplays();
 }
 void button8(Fl_Widget *w, void *) {
-  push(8);
+   number = number + "8";
   updateDisplays();
 }
 void button9(Fl_Widget *w, void *) {
-  push(9);
+   number = number + "9";
   updateDisplays();
 }
 void button0(Fl_Widget *w, void *) {
-  push(0);
+   number = number + "0";
   updateDisplays();
 }
 
 
 void opAddition(Fl_Widget *w,void *){
-  cout << "+" << endl;
+   updateDisplays();
 }
 void opSubtraction(Fl_Widget *w,void *){
-  cout << "-" << endl;
+   updateDisplays();
 }
 void opMultiplication(Fl_Widget *w,void *){
-   cout << "*" << endl;
+   updateDisplays();
 }
 void opDivision(Fl_Widget *w,void *){
-   cout << "/" << endl;
+   updateDisplays();
 }
 void opExpo(Fl_Widget *w,void *){
-   cout << "^" << endl;
+   updateDisplays();
 }
 void opSqrt(Fl_Widget *w,void *){
-   cout << "sqrt" << endl;
+   updateDisplays();
 }
 void opSign(Fl_Widget *w,void *){
-   cout << "sign" << endl;
+   updateDisplays();
 }
 void opEnter(Fl_Widget *w,void *){
-   cout << "enter" << endl;
+  push(atoi(number.c_str()));
+  number = "";
+  updateDisplays();
 }
 void opDrop(Fl_Widget *w,void *){
-   cout << "drop" << endl;
+   updateDisplays();
 }
 
 

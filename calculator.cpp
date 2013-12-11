@@ -60,28 +60,63 @@ void updateDisplays(){
   out1->value( (to_string(first())).c_str() );
 }
 
-
+void button1(Fl_Widget *w, void *) {
+  push(1);
+  updateDisplays();
+}
+void button2(Fl_Widget *w, void *) {
+  push(2);
+  updateDisplays();
+}
+void button3(Fl_Widget *w, void *) {
+  push(3);
+  updateDisplays();
+}
+void button4(Fl_Widget *w, void *) {
+  push(4);
+  updateDisplays();
+}
+void button5(Fl_Widget *w, void *) {
+  push(5);
+  updateDisplays();
+}
+void button6(Fl_Widget *w, void *) {
+  push(6);
+  updateDisplays();
+}
+void button7(Fl_Widget *w, void *) {
+  push(7);
+  updateDisplays();
+}
+void button8(Fl_Widget *w, void *) {
+  push(8);
+  updateDisplays();
+}
+void button9(Fl_Widget *w, void *) {
+  push(9);
+  updateDisplays();
+}
+void button0(Fl_Widget *w, void *) {
+  push(0);
+  updateDisplays();
+}
 
 
 void opAddition(Fl_Widget *w,void *){
   cout << "+" << endl;
 }
-
 void opSubtraction(Fl_Widget *w,void *){
   cout << "-" << endl;
 }
-
 void opMultiplication(Fl_Widget *w,void *){
    cout << "*" << endl;
 }
-
 void opDivision(Fl_Widget *w,void *){
    cout << "/" << endl;
 }
 void opExpo(Fl_Widget *w,void *){
    cout << "^" << endl;
 }
-
 void opSqrt(Fl_Widget *w,void *){
    cout << "sqrt" << endl;
 }
@@ -96,8 +131,7 @@ void opDrop(Fl_Widget *w,void *){
 }
 
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
   
   //create window
   Fl_Window *window = new Fl_Window(400,600);
@@ -120,34 +154,34 @@ int main(int argc, char *argv[])
 
  //added button
  Fl_Button *b1 = new Fl_Button(20, 200, 80,80,"1");
- b1->callback(numButton,0);
+ b1->callback(button1,0);
 
  Fl_Button *b2 = new Fl_Button(105, 200, 80,80,"2");
- b2->callback(numButton,0);
+ b2->callback(button2,0);
 
  Fl_Button *b3 = new Fl_Button(190, 200, 80,80,"3");
- b3->callback(numButton,0);
+ b3->callback(button3,0);
 
  Fl_Button *b4 = new Fl_Button(20, 290, 80,80,"4");
- b4->callback(numButton,0);
+ b4->callback(button4,0);
 
  Fl_Button *b5 = new Fl_Button(105, 290, 80,80,"5");
- b5->callback(numButton,0);
+ b5->callback(button5,0);
 
  Fl_Button *b6 = new Fl_Button(190, 290, 80,80,"6");
- b6->callback(numButton,0);
+ b6->callback(button6,0);
 
  Fl_Button *b7 = new Fl_Button(20, 380, 80,80,"7");
- b7->callback(numButton,0);
+ b7->callback(button7,0);
 
  Fl_Button *b8 = new Fl_Button(105, 380, 80,80,"8");
- b8->callback(numButton,0);
+ b8->callback(button8,0);
 
  Fl_Button *b9 = new Fl_Button(190, 380, 80,80,"9");
- b9->callback(numButton,0);
+ b9->callback(button9,0);
     
  Fl_Button *b0 = new Fl_Button(105, 470, 80,80,"0");
- b0->callback(numButton,0);
+ b0->callback(button0,0);
 
  Fl_Button *addition = new Fl_Button(300,200, 50, 50,"+");
  addition->callback (opAddition,0);

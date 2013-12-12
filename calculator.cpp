@@ -63,6 +63,8 @@ void updateDisplays(){
 
 void button1(Fl_Widget *w, void *) {
   number = number + "1";
+  //pop();
+  //push(atoi(number.c_str()));
   updateDisplays();
 }
 void button2(Fl_Widget *w, void *) {

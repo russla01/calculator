@@ -7,10 +7,11 @@
 #include <string>
 #include <iostream>
 #include <FL/Fl_Output.H>
-
+#include <cmath>
+#include "stack.h"
 using namespace std;
 
-vector <int> elements;
+Stack elements;
 string number = "";
 
 Fl_Output *out4;
@@ -18,39 +19,29 @@ Fl_Output *out3;
 Fl_Output *out2;
 Fl_Output *out1;
 
-void push(int value){
-  elements.push_back(value);
+bool haveAnswer = false;
+
+void push(float value){
+  elements.push(value);
 }
-int pop(){
-  elements.pop_back();
+float pop(){
+  elements.pop();
 }
-int top(){
-  if (elements.size() >= 1){
-    return elements[elements.size()-1];
-  }else
-    return 0;
+float top(){
+  return elements.top();
 }
 //for display. Returns the first, second, etc things on the stack
-int first(){ 
+float first(){ 
   return top();
 }
-int second(){
-  if (elements.size() >= 2){
-    return elements[elements.size()-2];
-  }else
-    return 0;
+float second(){
+  return elements.second();
 }
-int third(){
-  if (elements.size() >= 3){
-    return elements[elements.size()-3];
-  }else
-    return 0;
+float third(){
+  return elements.third();
 }
-int fourth(){
-  if (elements.size() >= 4){
-    return elements[elements.size()-4];
-  }else
-    return 0;
+float fourth(){
+  return elements.fourth();
 }
 //end display functions
 
@@ -68,68 +59,187 @@ void updateDisplays(){
 }
 
 void button1(Fl_Widget *w, void *) {
-  number = number + "1";
+  if (haveAnswer == true){
+    push(stof(number.c_str()));
+    number = "1";
+  }
+  else{
+      number = number + "1";
+
+  }
+haveAnswer = false;
   //pop();
   //push(atoi(number.c_str()));
   updateDisplays();
 }
-void button2(Fl_Widget *w, void *) {
-  number = number + "2";
+void button2(Fl_Widget *w, void *) {  if (haveAnswer == true){
+    push(stof(number.c_str()));
+    number = "2";
+  }
+  else{
+      number = number + "2";
+
+  }
+haveAnswer = false;
   updateDisplays();
 }
 void button3(Fl_Widget *w, void *) {
-  number = number + "3";
+   if (haveAnswer == true){
+    push(stof(number.c_str()));
+    number = "3";
+  }
+  else{
+      number = number + "3";
+
+  }
+haveAnswer = false;
   updateDisplays();
 }
 void button4(Fl_Widget *w, void *) {
-  number = number + "4";
+  if (haveAnswer == true){
+    push(stof(number.c_str()));
+    number = "4";
+  }
+  else{
+      number = number + "4";
+
+  }
+haveAnswer = false;
   updateDisplays();
 }
 void button5(Fl_Widget *w, void *) {
-  number = number + "5";
+   if (haveAnswer == true){
+    push(stof(number.c_str()));
+    number = "5";
+  }
+  else{
+      number = number + "5";
+
+  }
+haveAnswer = false;
   updateDisplays();
 }
 void button6(Fl_Widget *w, void *) {
-  number = number + "6";
+   if (haveAnswer == true){
+    push(stof(number.c_str()));
+    number = "6";
+  }
+  else{
+      number = number + "6";
+ 
+  }
+haveAnswer = false;
   updateDisplays();
 }
 void button7(Fl_Widget *w, void *) {
-  number = number + "7";
+  if (haveAnswer == true){
+    push(stof(number.c_str()));
+    number = "7";
+  }
+  else{
+      number = number + "7";
+  }
+haveAnswer = false;
   updateDisplays();
 }
 void button8(Fl_Widget *w, void *) {
-   number = number + "8";
+  if (haveAnswer == true){
+    push(stof(number.c_str()));
+    number = "8";
+  }
+  else{
+      number = number + "8";
+
+  }
+haveAnswer = false;
   updateDisplays();
 }
 void button9(Fl_Widget *w, void *) {
-   number = number + "9";
+  if (haveAnswer == true){
+    push(stof(number.c_str()));
+    number = "9";
+  }
+  else{
+      number = number + "9";
+
+  }
+haveAnswer = false;
   updateDisplays();
 }
 void button0(Fl_Widget *w, void *) {
-   number = number + "0";
+   if (haveAnswer == true){
+    push(stof(number.c_str()));
+    number = "0";
+  }
+  else{
+      number = number + "0";
+ 
+  }
+haveAnswer = false;
   updateDisplays();
 }
 
 
 void opAddition(Fl_Widget *w,void *){
-   updateDisplays();
+  push(stof(number.c_str()));
+  float answer = first() + second();
+  pop(); 
+  pop();
+  number = to_string(answer);
+  haveAnswer = true;
+  
+  updateDisplays();
 }
 void opSubtraction(Fl_Widget *w,void *){
+  push(stof(number.c_str()));
+  float answer = second() - first();
+  pop(); 
+  pop();
+  number = to_string(answer);
+  haveAnswer = true;
    updateDisplays();
 }
 void opMultiplication(Fl_Widget *w,void *){
+  push(stof(number.c_str()));
+  float answer = second() * first();
+  pop(); 
+  pop();
+  number = to_string(answer);
+  haveAnswer = true;
    updateDisplays();
 }
 void opDivision(Fl_Widget *w,void *){
+  push(stof(number.c_str()));
+  float answer = second() / first();
+  pop(); 
+  pop();
+  number = to_string(answer);
+  haveAnswer = true;
    updateDisplays();
 }
 void opExpo(Fl_Widget *w,void *){
+  push(stof(number.c_str()));
+  float answer = pow(second(), first());
+  pop(); 
+  pop();
+  number = to_string(answer);
+  haveAnswer = true;
    updateDisplays();
 }
 void opSqrt(Fl_Widget *w,void *){
+  push(stof(number.c_str()));
+  float answer = pow(first(),0.5);
+  pop();
+  number = to_string(answer);
+  haveAnswer = true;
    updateDisplays();
 }
 void opSign(Fl_Widget *w,void *){
+  push(stof(number.c_str()));
+  float answer = first()* (-1);
+  pop();
+  number = to_string(answer);
+  haveAnswer = true;
    updateDisplays();
 }
 void opEnter(Fl_Widget *w,void *){
@@ -138,7 +248,9 @@ void opEnter(Fl_Widget *w,void *){
   updateDisplays();
 }
 void opDrop(Fl_Widget *w,void *){
-   updateDisplays();
+  pop(); 
+  updateDisplays();
+ 
 }
 
 
@@ -221,7 +333,6 @@ int main(int argc, char *argv[]){
  Fl_Button *drop = new Fl_Button(35,485, 50, 50,"DROP");
  drop->callback (opDrop,0);
   
-
   window->end();
   window->show(argc,argv);
 

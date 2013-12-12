@@ -55,10 +55,16 @@ int fourth(){
 //end display functions
 
 void updateDisplays(){
-  out4->value( (to_string(fourth())).c_str() );
-  out3->value( (to_string(third())).c_str() );
-  out2->value( (to_string(second())).c_str() );
-  out1->value( (to_string(first())).c_str() );
+  out4->value( (to_string(third())).c_str() );
+  out3->value( (to_string(second())).c_str() );
+  out2->value( (to_string(first())).c_str() );
+  //out1->value( (to_string(first())).c_str() );
+  if (number == ""){
+    out1->value("0");
+      }
+  else{
+  out1->value(number.c_str());
+  }
 }
 
 void button1(Fl_Widget *w, void *) {
